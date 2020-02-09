@@ -3,6 +3,8 @@ from sklearn.datasets import load_iris
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+import pickle
+
 
 iris = load_iris()
 X = iris.data
@@ -22,3 +24,6 @@ clf.fit(X_train, Y_train)
 predicted = clf.predict(X_test)
 
 print(accuracy_score(predicted,Y_test))
+
+with open('/Users/niles/Desktop/Flask-application/machine_learning model woth flask/rf.pkl','wb') as model_pkl:
+    pickle.dump(clf , model_pkl)
